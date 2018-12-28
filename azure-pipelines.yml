@@ -15,7 +15,7 @@ jobs:
         python.version: '3.7'
         python.arch: 'x86'
         python.pip: '18.1.0'
-      py37-64bit-pip-18.0.0:
+      py37-64bit-pip-18.1.0:
         python.version: '3.7'
         python.arch: 'x64'
         python.pip: '18.1.0'
