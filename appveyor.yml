@@ -13,9 +13,5 @@ environment:
 
 build_script:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;;%PATH%"
-  - "python --version"
-  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
   - "python -m pip install pip==%PIP%"
-  - "pip --version"
-  - ps: "Measure-Command {pip install -r requirements.txt}"
-  - "pip list"
+  - ps: install.ps

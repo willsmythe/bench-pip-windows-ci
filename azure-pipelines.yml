@@ -2,7 +2,7 @@ trigger:
 - master
 
 jobs:
-- job: 'xxx'
+- job:
   pool:
     vmImage: 'vs2017-win2016'
   strategy:
@@ -30,9 +30,5 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: '$(python.arch)'
-  - script: "python --version"
-  - script: "python -c \"import struct; print(struct.calcsize('P') * 8)\""
   - script: "python -m pip install pip==$(python.pip)"
-  - script: "pip --version"
-  - powershell: "Measure-Command {pip install -r requirements.txt}"
-  - script: "pip list"
+  - powershell: install.ps
