@@ -30,7 +30,7 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: '$(python.arch)'
-  - script: "python -m pip install pip==$(python.pip)"
+  #- script: "python -m pip install pip==$(python.pip)"
   - task: PowerShell@2
     inputs:
       filePath: install.ps1
