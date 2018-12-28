@@ -1,6 +1,6 @@
 Set-PSDebug -Trace 1
 
-python -m virtualenv myenv
+python -m venv myenv
 myenv\Scripts\activate
 
 python --version
