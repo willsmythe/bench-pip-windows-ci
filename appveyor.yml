@@ -1,4 +1,4 @@
-os: Visual Studio 2015
+os: Visual Studio 2017
 
 environment:
   matrix:
@@ -14,4 +14,4 @@ environment:
 build_script:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;;%PATH%"
   - "python -m pip install pip==%PIP%"
-  - ps: install.ps
+  - ".\\install.ps1"
