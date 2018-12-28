@@ -1,0 +1,33 @@
+jobs:
+- job:
+    vmImage: 'vs2017-win2016'
+  strategy:
+    matrix:
+      py37-32bit-pip-18.0.0:
+        python.version: '3.7'
+        python.arch: 'x86'
+        python.pip: '18.0.0'
+      py37-64bit-pip-18.0.0:
+        python.version: '3.7'
+        python.arch: 'x64'
+        python.pip: '18.0.0'
+      py37-32bit-pip-18.1.0:
+        python.version: '3.7'
+        python.arch: 'x86'
+        python.pip: '18.1.0'
+      py37-64bit-pip-18.0.0:
+        python.version: '3.7'
+        python.arch: 'x64'
+        python.pip: '18.1.0'
+    maxParallel: 10
+
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+      architecture: '$(python.arch)'
+  - script: "python --version"
+  - script: "python -c \"import struct; print(struct.calcsize('P') * 8)\""
+  - script: "python -m pip install pip==%PIP%"
+  - script: "pip --version"
+  - powershell: "Measure-Command {pip install -r requirements.txt}"

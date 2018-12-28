@@ -1,0 +1,20 @@
+os: Visual Studio 2015
+
+environment:
+  matrix:
+    - PYTHON: "C:\\Python37"
+      PIP: 18.0.0
+    - PYTHON: "C:\\Python37"
+      PIP: 18.1.0
+    - PYTHON: "C:\\Python37-x64"
+      PIP: 18.0.0
+    - PYTHON: "C:\\Python37-x64"
+      PIP: 18.1.0
+
+build_script:
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;;%PATH%"
+  - "python --version"
+  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
+  - "python -m pip install pip==%PIP%"
+  - "pip --version"
+  - ps: "Measure-Command {pip install -r requirements.txt}"
