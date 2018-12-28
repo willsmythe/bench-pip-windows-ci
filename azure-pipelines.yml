@@ -32,4 +32,5 @@ jobs:
       architecture: '$(python.arch)'
   - script: "python -m pip install pip==$(python.pip)"
   - task: PowerShell@2
-    filePath: install.ps1
+    inputs:
+      filePath: install.ps1
