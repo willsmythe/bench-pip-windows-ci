@@ -2,10 +2,10 @@ os: windows
 language: shell
 
 script:
-  - choco install python
-  - python --version
-  - "python -c \"import struct; print(struct.calcsize('P') * 8, 'bits')\""
-  - pip --version
-  - pip install -U pip
-  - pip --version
-  - ".\\install.ps1"
+  - choco install python3
+  - python3 --version
+  - "python3 -c \"import struct; print(struct.calcsize('P') * 8, 'bits')\""
+  - python3 -m pip --version
+  - python3 -m pip install -U pip
+  - python3 -m pip --version
+  - python3 -m pip install -r requirements.txt
