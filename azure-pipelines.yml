@@ -2,7 +2,7 @@ trigger:
 - master
 
 jobs:
-- job: "no venv"
+- job: Regular
   pool:
     vmImage: 'vs2017-win2016'
   steps:
@@ -14,7 +14,7 @@ jobs:
     inputs:
       filePath: install.ps1
 
-- job: "with venv"
+- job: UseVenv
   pool:
     vmImage: 'vs2017-win2016'
   steps:
