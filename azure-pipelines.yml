@@ -2,34 +2,27 @@ trigger:
 - master
 
 jobs:
-- job:
+- job: "no venv"
   pool:
     vmImage: 'vs2017-win2016'
-  strategy:
-    matrix:
-      # py37-32bit-pip-18.0.0:
-      #   python.version: '3.7'
-      #   python.arch: 'x86'
-      #   python.pip: '18.0.0'
-      # py37-64bit-pip-18.0.0:
-      #   python.version: '3.7'
-      #   python.arch: 'x64'
-      #   python.pip: '18.0.0'
-      # py37-32bit-pip-18.1.0:
-      #   python.version: '3.7'
-      #   python.arch: 'x86'
-      #   python.pip: '18.1.0'
-      py37-64bit-pip-latest:
-        python.version: '3.7'
-        python.arch: 'x64'
-    maxParallel: 10
-
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '$(python.version)'
-      architecture: '$(python.arch)'
-  #- script: "python -m pip install pip==$(python.pip)"
+      versionSpec: '3.7'
+      architecture: 'x64'
   - task: PowerShell@2
     inputs:
       filePath: install.ps1
+
+- job: "with venv"
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.7'
+      architecture: 'x64'
+  - task: PowerShell@2
+    inputs:
+      filePath: install.ps1
+      arguments: -UseVenv
