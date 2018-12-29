@@ -1,0 +1,10 @@
+os: windows
+
+script:
+  - choco install python
+  - python --version
+  - "python -c \"import struct; print(struct.calcsize('P') * 8, 'bits')\""
+  - pip --version
+  - pip install -U pip
+  - pip --version
+  - ".\\install.ps1"
