@@ -6,7 +6,7 @@ environment:
 
 build_script:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "echo %PIP_CACHE_DIR%"
+  - ps: "Get-ChildItem Env:"
   - "python -m pip install -U pip"
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8, 'bits')\""
@@ -15,8 +15,9 @@ build_script:
   - "pip list"
   - "echo ----- NEW VENV -----"
   - "python -m venv v"
-  - "v\\Scripts\\python -m pip install -U pip"
+  - "v\\Scripts\\python -m pip -v install -U pip"
   - "v\\Scripts\\pip --version"
   - "v\\Scripts\\pip list"
-  - ps: "Measure-Command {v\\Scripts\\pip install -r requirements.txt}"
+  #- ps: "Measure-Command {v\\Scripts\\pip install -r requirements.txt}"
+  - "v\\Scripts\\pip install -v -r requirements.txt"
   - "v\\Scripts\\pip list"
