@@ -16,6 +16,8 @@ build_script:
   - "echo ----- NEW VENV -----"
   - "python -m venv v"
   - v\\Scripts\\python -c "from pip._internal.utils.appdirs import user_cache_dir; print(user_cache_dir('pip'), user_cache_dir('wheel'))"
+  - "dir /s C:\\Users\\appveyor\\AppData\\Local\\pip\\Cache"
+  - "dir /s C:\\Users\\appveyor\\AppData\\Local\\wheel\\Cache"
   - "v\\Scripts\\python -m pip install -U pip"
   - "v\\Scripts\\pip --version"
   - "v\\Scripts\\pip list"
