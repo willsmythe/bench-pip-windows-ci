@@ -5,6 +5,9 @@ param([switch] $UseVenv)
 
 Set-PSDebug -Trace 1
 
+# https://superuser.com/a/1026449
+Set-MpPreference -DisableRealtimeMonitoring $true
+
 if ($UseVenv) {
     python -m venv myenv
     myenv\Scripts\activate
