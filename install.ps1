@@ -5,8 +5,11 @@ param([switch] $UseVenv)
 
 Set-PSDebug -Trace 1
 
+Get-MpPreference
 # https://superuser.com/a/1026449
 Set-MpPreference -DisableRealtimeMonitoring $true
+Get-MpPreference
+Get-Service WinDefend | stop-service
 
 if ($UseVenv) {
     python -m venv myenv
