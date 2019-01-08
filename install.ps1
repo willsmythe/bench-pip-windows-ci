@@ -15,7 +15,7 @@ Set-PSDebug -Trace 1
 
 if ($UseVenv) {
     python -m venv myenv
-    myenv\Scripts\activate
+    myenv\Scripts\activate.ps1
 }
 
 python -m pip install -U pip
