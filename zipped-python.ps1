@@ -13,6 +13,7 @@ ls python-dir
 $pydir = (Get-Item -Path python-dir).FullName
 
 $Env:PATH = ($pydir + ";" + $pydir + "\scripts" + ";" + $Env:PATH)
+$Env:PYTHONPATH = $pydir + "\lib"
 
 python -V
 
@@ -21,7 +22,9 @@ python get-pip.py -v
 
 ls python-dir
 ls python-dir\scripts
+ls python-dir\lib
 
+pip --version
 python -m pip --version
 
 python -m pip install -U pip
