@@ -14,19 +14,13 @@ nuget.exe install python -ExcludeVersion -OutputDirectory scratch
 
 scratch\python\tools\python.exe -V
 
-ls scratch\python\tools
-ls scratch\python\tools\tools
-ls scratch\python\tools\tools\scripts
-
 $Env:PATH = ((Get-Item -Path scratch\python\tools).FullName + ";" + $Env:PATH)
 python -V
 
-python -m ensurepip
+# This installer has no 'pip' script that I can find, or ensurepip, but it
+# does have a pip module. So you *have* to use python -m pip. Weird.
+python -m pip --version
+python -m pip install -vv -U pip
+python -m pip --version
 
-ls scratch\python\tools
-
-pip --version
-python -m pip install -U pip
-pip --version
-
-pip install -r requirements.txt
+python -m pip install -vv -r requirements.txt
