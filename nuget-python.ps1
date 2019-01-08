@@ -14,9 +14,7 @@ nuget.exe install python -ExcludeVersion -OutputDirectory scratch
 
 scratch\python\tools\python.exe -V
 
-$Env:PATH = ((Get-Item -Path scratch\python\tools).FullName + ";" `
-             (Get-Item -Path scratch\python\tools\scripts).FullName + ";" `
-             + $Env:PATH)
+$Env:PATH = ((Get-Item -Path scratch\python\tools).FullName + ";" + (Get-Item -Path scratch\python\tools\scripts).FullName + ";" + $Env:PATH)
 python -V
 
 # This installer has no 'pip' script that I can find, or ensurepip, but it

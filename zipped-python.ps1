@@ -10,12 +10,15 @@ Expand-Archive python.zip -Force -DestinationPath python-dir
 
 ls python-dir
 
-$Env:PATH = ((Get-Item -Path python-dir).FullName + ";" + $Env:PATH)
+$Env:PATH = ((Get-Item -Path python-dir).FullName + ";" + (Get-Item -Path python-dir\scripts).FullName + ";" + $Env:PATH)
 
 python -V
 
 Invoke-WebRequest -Uri "https://bootstrap.pypa.io/get-pip.py" -OutFile get-pip.py
-python get-pip.py
+python get-pip.py -v
+
+ls python-dir
+ls python-dir\scripts
 
 python -m pip --version
 
