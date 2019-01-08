@@ -52,3 +52,11 @@ jobs:
   - task: PowerShell@2
     inputs:
       filePath: nuget-python.ps1
+
+- job: ZippedPython
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - task: PowerShell@2
+    inputs:
+      filePath: zipped-python.ps1

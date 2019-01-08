@@ -17,7 +17,7 @@ scratch\python\tools\python.exe -V
 ls scratch\python\tools
 ls scratch\python\tools\tools
 
-$Env:PATH = ((Get-Item -Path scratch\python\tools).FullName + $Env:PATH)
+$Env:PATH = ((Get-Item -Path scratch\python\tools).FullName + ";" + $Env:PATH)
 python -V
 
 python -m ensurepip
@@ -26,3 +26,6 @@ ls scratch\python\tools
 
 pip --version
 python -m pip install -U pip
+pip --version
+
+pip install -r requirements.txt
