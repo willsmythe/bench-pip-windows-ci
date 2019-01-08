@@ -10,7 +10,9 @@ Expand-Archive python.zip -Force -DestinationPath python-dir
 
 ls python-dir
 
-$Env:PATH = ((Get-Item -Path python-dir).FullName + ";" + (Get-Item -Path python-dir\scripts).FullName + ";" + $Env:PATH)
+$pydir = (Get-Item -Path python-dir).FullName
+
+$Env:PATH = (pydir + ";" + pydir + "\scripts" + ";" + $Env:PATH)
 
 python -V
 
