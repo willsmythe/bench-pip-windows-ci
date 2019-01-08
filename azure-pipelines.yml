@@ -26,3 +26,15 @@ jobs:
     inputs:
       filePath: install.ps1
       arguments: -UseVenv
+
+- job: Ramdisk
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.7'
+      architecture: 'x64'
+  - task: PowerShell@2
+    inputs:
+      filePath: ramdisk.ps1
