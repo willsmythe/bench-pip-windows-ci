@@ -1,6 +1,6 @@
 Set-PSDebug -Trace 1
 
-Invoke-WebRequest -Uri "//www.python.org/ftp/python/3.7.2/python-3.7.2-embed-amd64.zip" -OutFile python.zip
+Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.7.2/python-3.7.2-embed-amd64.zip" -OutFile python.zip
 
 Expand-Archive python.zip -DestinationPath python-dir
 

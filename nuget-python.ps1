@@ -16,6 +16,7 @@ scratch\python\tools\python.exe -V
 
 ls scratch\python\tools
 ls scratch\python\tools\tools
+ls scratch\python\tools\tools\scripts
 
 $Env:PATH = ((Get-Item -Path scratch\python\tools).FullName + ";" + $Env:PATH)
 python -V
