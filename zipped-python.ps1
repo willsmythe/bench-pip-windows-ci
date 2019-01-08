@@ -13,7 +13,7 @@ ls python-dir
 $pydir = (Get-Item -Path python-dir).FullName
 
 $Env:PATH = ($pydir + ";" + $pydir + "\scripts" + ";" + $Env:PATH)
-$Env:PYTHONPATH = $pydir + "\lib"
+$Env:PYTHONPATH = $pydir + "\lib\site-packages"
 
 python -V
 
@@ -23,6 +23,7 @@ python get-pip.py -v
 ls python-dir
 ls python-dir\scripts
 ls python-dir\lib
+ls python-dir\lib\site-packages
 
 pip --version
 python -m pip --version
