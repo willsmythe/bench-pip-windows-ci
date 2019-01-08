@@ -14,6 +14,9 @@ $Env:PATH = ((Get-Item -Path python-dir).FullName + ";" + $Env:PATH)
 
 python -V
 
+Invoke-WebRequest -Uri "https://bootstrap.pypa.io/get-pip.py" -OutFile get-pip.py
+python get-pip.py
+
 python -m pip --version
 
 python -m pip install -U pip
