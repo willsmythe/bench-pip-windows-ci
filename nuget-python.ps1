@@ -22,7 +22,7 @@ python -V
 # This installer has no 'pip' script that I can find, or ensurepip, but it
 # does have a pip module. So you *have* to use python -m pip. Weird.
 python -m pip --version
-python -m pip install -vv -U pip
+python -m pip install -U pip
 python -m pip --version
 
-python -m pip install -vv -r requirements.txt
+python -m pip install -r requirements.txt

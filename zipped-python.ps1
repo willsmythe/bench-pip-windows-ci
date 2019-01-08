@@ -12,7 +12,7 @@ ls python-dir
 
 $pydir = (Get-Item -Path python-dir).FullName
 
-$Env:PATH = (pydir + ";" + pydir + "\scripts" + ";" + $Env:PATH)
+$Env:PATH = ($pydir + ";" + $pydir + "\scripts" + ";" + $Env:PATH)
 
 python -V
 
