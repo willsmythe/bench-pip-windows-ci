@@ -19,10 +19,10 @@ gci env:
 python -m venv r:\myenv
 r:\myenv\Scripts\activate.ps1
 
-python -m pip install -vvv -U pip
+python -m pip install -U pip
 
 python --version
 python -c "import struct; print(struct.calcsize('P') * 8, 'bits')"
 pip --version
 
-pip install -vvv -r requirements.txt
+pip install -r requirements.txt

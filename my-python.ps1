@@ -1,0 +1,17 @@
+Set-PSDebug -Trace 1
+
+mkdir scratch
+
+mkdir scratch\tmp
+mkdir scratch\cache
+Set-Item -Path Env:TMPDIR -Value (Get-Item -Path tmp).FullName
+Set-Item -Path Env:TMP -Value (Get-Item -Path tmp).FullName
+Set-Item -Path Env:TEMP -Value (Get-Item -Path tmp).FullName
+Set-Item -Path Env:PIP_CACHE_DIR -Value (Get-Item -Path cache).FullName
+
+# https://docs.python.org/3/using/windows.html#windows-nuget
+nuget.exe install python -ExcludeVersion -OutputDirectory scratch
+
+ls scratch\python
+ls scratch\python\tools
+scratch\python\tools\python.exe -V
