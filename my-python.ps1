@@ -10,8 +10,11 @@ Set-Item -Path Env:TEMP -Value (Get-Item -Path scratch\tmp).FullName
 Set-Item -Path Env:PIP_CACHE_DIR -Value (Get-Item -Path scratch\cache).FullName
 
 # https://docs.python.org/3/using/windows.html#windows-nuget
-nuget.exe install python -ExcludeVersion -OutputDirectory scratch
+Install-Package python -ExcludeVersion
 
+ls
+ls python
+python\tools\python.exe -V
 ls scratch\python
 ls scratch\python\tools
 scratch\python\tools\python.exe -V
