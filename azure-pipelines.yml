@@ -44,7 +44,7 @@ jobs:
     inputs:
       filePath: imdisk-venv.ps1
 
-  - job: MyPython
+- job: MyPython
   pool:
     vmImage: 'vs2017-win2016'
   steps:
