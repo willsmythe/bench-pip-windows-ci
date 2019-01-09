@@ -14,10 +14,14 @@ $Env:PIP_CACHE_DIR = $scratch + "\pip-cache"
 # Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/python/3.7.2" -OutFile ($scratch + "\python.nupkg")
 # nuget install $scratch + "\python.nupkg"
 
-ls "C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\"
+#ls "C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\"
+
+# Just see how long this takes
+Invoke-WebRequest -Uri "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" -OutFile asdf.exe
+.\asdf.exe install -Help
 
 # https://docs.python.org/3/using/windows.html#windows-nuget
-nuget.exe install python -ExcludeVersion -OutputDirectory scratch -Verbosity detailed -DirectDownload -NonInteractive
+nuget.exe install python -Source "https://api.nuget.org/v3/index.json" -ExcludeVersion -OutputDirectory scratch -Verbosity detailed -DirectDownload -NonInteractive
 
 scratch\python\tools\python.exe -V
 
