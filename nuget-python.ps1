@@ -14,6 +14,8 @@ $Env:PIP_CACHE_DIR = $scratch + "\pip-cache"
 # Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/python/3.7.2" -OutFile ($scratch + "\python.nupkg")
 # nuget install $scratch + "\python.nupkg"
 
+ls "C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\"
+
 # https://docs.python.org/3/using/windows.html#windows-nuget
 nuget.exe install python -ExcludeVersion -OutputDirectory scratch -Verbosity detailed -DirectDownload -NonInteractive
 
