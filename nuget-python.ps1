@@ -11,11 +11,11 @@ $Env:TEMP = $scratch + "\tmp"
 mkdir scratch\pip-cache
 $Env:PIP_CACHE_DIR = $scratch + "\pip-cache"
 
-Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/python/3.7.2" -OutFile ($scratch + "\python.nupkg")
-nuget install $scratch + "\python.nupkg"
+# Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/python/3.7.2" -OutFile ($scratch + "\python.nupkg")
+# nuget install $scratch + "\python.nupkg"
 
 # https://docs.python.org/3/using/windows.html#windows-nuget
-nuget.exe install python -ExcludeVersion -OutputDirectory scratch
+nuget.exe install python -ExcludeVersion -OutputDirectory scratch -Verbosity detailed -DirectDownload -NonInteractive
 
 scratch\python\tools\python.exe -V
 
