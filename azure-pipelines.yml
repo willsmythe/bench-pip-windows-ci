@@ -53,10 +53,20 @@ jobs:
     inputs:
       filePath: nuget-python.ps1
 
-- job: ZippedPython
-  pool:
-    vmImage: 'vs2017-win2016'
-  steps:
-  - task: PowerShell@2
-    inputs:
-      filePath: zipped-python.ps1
+# This takes ~8-12 seconds to download the .zip (?? I guess python.org
+# is not super quick), and then 2 seconds to unpack and away we go.
+# But, the official zip distribution is missing some key bits (pip,
+# headers), so it's a dead-end.
+#
+# Still, seems very promising that something like this would be fast
+# on Azure if the zip file were created properly, and could be
+# downloaded from somewhere closer to the VM. (Maybe even the C:
+# drive.)
+#
+# - job: ZippedPython
+#   pool:
+#     vmImage: 'vs2017-win2016'
+#   steps:
+#   - task: PowerShell@2
+#     inputs:
+#       filePath: zipped-python.ps1
