@@ -15,6 +15,7 @@ jobs:
       filePath: install.ps1
     env:
       PIP_CACHE_DIR: $(Agent.BuildDirectory)/cache
+      VSTS_OVERWRITE_TEMP: false
 
 - job: 'Regular_noautocrlf'
   pool:
