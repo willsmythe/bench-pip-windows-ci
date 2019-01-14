@@ -31,7 +31,5 @@ python --version
 python -c "import struct; print(struct.calcsize('P') * 8, 'bits')"
 pip --version
 
-pip install --verbose -r requirements.txt
-
 Measure-Command {pip install --verbose -r requirements.txt}
 pip list
