@@ -14,7 +14,7 @@ jobs:
     inputs:
       filePath: install.ps1
 
-- job: 'Regular with autocrlf off'
+- job: 'Regular_noautocrlf'
   pool:
     vmImage: 'vs2017-win2016'
   steps:
