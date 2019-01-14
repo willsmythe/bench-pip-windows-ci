@@ -6,6 +6,10 @@ jobs:
   pool:
     vmImage: 'vs2017-win2016'
   steps:
+  - script: |
+      git config --global core.autocrlf false
+  - checkout: self
+  
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '3.7'
