@@ -13,14 +13,15 @@ param([switch] $UseVenv)
 # Get-MpPreference
 # # Get-Service WinDefend | stop-service
 
-mkdir tmp
-mkdir cache
-Set-Item -Path Env:TMPDIR -Value (Get-Item -Path tmp).FullName
-Set-Item -Path Env:TMP -Value (Get-Item -Path tmp).FullName
-Set-Item -Path Env:TEMP -Value (Get-Item -Path tmp).FullName
-Set-Item -Path Env:PIP_CACHE_DIR -Value (Get-Item -Path cache).FullName
+#mkdir tmp
+#mkdir cache
+#Set-Item -Path Env:TMPDIR -Value (Get-Item -Path tmp).FullName
+#Set-Item -Path Env:TMP -Value (Get-Item -Path tmp).FullName
+#Set-Item -Path Env:TEMP -Value (Get-Item -Path tmp).FullName
+#Set-Item -Path Env:PIP_CACHE_DIR -Value (Get-Item -Path cache).FullName
 
 Get-Item -Path Env:P*
+Get-Item -Path Env:TEMP
 
 if ($UseVenv) {
     python -m venv myenv

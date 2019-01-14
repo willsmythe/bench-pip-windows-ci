@@ -1,6 +1,9 @@
 trigger:
 - master
 
+variables:
+  VSTS_OVERWRITE_TEMP: true
+
 jobs:
 - job: Regular
   pool:
@@ -13,9 +16,8 @@ jobs:
   - task: PowerShell@2
     inputs:
       filePath: install.ps1
-    env:
-      PIP_CACHE_DIR: $(Agent.BuildDirectory)/cache
-      VSTS_OVERWRITE_TEMP: false
+    #env:
+    #  PIP_CACHE_DIR: $(Agent.BuildDirectory)/cache
 
 - job: 'Regular_noautocrlf'
   pool:
