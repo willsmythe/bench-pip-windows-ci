@@ -3,7 +3,7 @@
 # https://twitter.com/zooba/status/1078548597195497472
 param([switch] $UseVenv)
 
-Set-PSDebug -Trace 1
+#Set-PSDebug -Trace 1
 
 # None of this seems to help, alas:
 # Get-MpPreference
@@ -19,6 +19,8 @@ Set-Item -Path Env:TMPDIR -Value (Get-Item -Path tmp).FullName
 Set-Item -Path Env:TMP -Value (Get-Item -Path tmp).FullName
 Set-Item -Path Env:TEMP -Value (Get-Item -Path tmp).FullName
 Set-Item -Path Env:PIP_CACHE_DIR -Value (Get-Item -Path cache).FullName
+
+Get-Item -Path Env:P*
 
 if ($UseVenv) {
     python -m venv myenv
